@@ -1,0 +1,661 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'HeadingFont';
+    src: url('../font/Revard.woff2') format('woff2');
+        url('../font/Revard.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'BodyFont';
+    src: url('../font/Minipax-Regular.woff2') format('woff2');
+}
+
+body {
+    /*font-family: "Franklin Gothic Medium", sans-serif;*/
+    line-height: 1.6;
+    background: linear-gradient(55deg, #f4f4f4 0%, #F0FFF0 51%, #f4f4f4 85%);
+}
+
+.text-cl {
+    color: #6B8E23;
+}
+
+/* Navbar menu */
+.navbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #777;
+    padding: 10px;
+}
+
+.toggle-nav {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-right: 20px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    font-family: 'BodyFont', sans-serif;
+}
+
+.nav-menu li a:hover {
+    color: #6B8E23;
+}
+
+/* Parallax */
+.parallax {
+    position: relative; /* Позволяет абсолютно позиционировать дочерние элементы */
+    overflow: hidden; /* Убирает возможные переполнения из-за размытия */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax .background-blur {
+    position: absolute; /* Абсолютное позиционирование для блур-фона */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px); /* Размытие фона */
+    z-index: 0; /* Позволяет этому элементу быть на заднем плане */
+}
+
+.parallax-1 {
+    min-height: 873px;
+}
+
+.parallax-1 .background-blur {
+    background-image: url('../img/background.jpg');
+}
+
+.parallax .avatar {
+    position: relative;
+    z-index: 1;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-image: url('../img/photo.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+.parallax h1 {
+    position: relative; /* Позволяет заголовку находиться выше размытого фона */
+    z-index: 1; /* Заголовок будет на переднем плане */
+    text-align: center;
+    color: #FFFFF0;
+    font-size: 55px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    background-color: rgba(119, 119, 119, 0.7); /* Полупрозрачный фон */
+    padding: 10px;
+    /*display: inline-block;*/
+    border-radius: 5px;
+    font-family: 'HeadingFont', sans-serif;
+}
+
+.parallax p {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-family: 'BodyFont', sans-serif;
+    font-size: 15px;
+    color: #FFFFF0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    background-color: rgba(119, 119, 119, 0.7);
+    border-radius: 5px;
+    width: 50%;
+}
+
+/* Main */
+main {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Section */
+section {
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h1 {
+    text-align: center;
+    color: #6B8E23;
+    font-size: 35px;
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);*/
+    font-family: 'HeadingFont', sans-serif;
+}
+
+section p {
+    color: black;
+    /*text-shadow: 0.1px 0.1px 0.2px rgba(0, 0, 0, 0.7);*/
+    font-family: 'BodyFont', sans-serif;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #777;
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+footer a:hover {
+    color: #6B8E23
+}
+
+/* Collapsible */
+.collapsible {
+    margin: 10px 0;
+    /*width: 400px;*/
+}
+
+.collapsible-button {
+    position: relative;
+    background-color: #FAF0E6;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible-content {
+    display: none;
+    padding: 10px;
+    border: 3px solid #6B8E23;
+    border-radius: 5px;
+    height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: height 0.3s ease;
+}
+
+.collapsible-content p {
+    text-align: center;
+    /*text-shadow: 0.1px 0.1px 0.2px rgba(0, 0, 0, 0.7);*/
+    color: black;
+    padding: 1px;
+    font-family: 'BodyFont', sans-serif;
+}
+
+.collapsible-content hr {
+    border: 2px solid #6B8E23;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.collapsible-content ul {
+    list-style-type: none;
+    /*text-align: center;*/
+    font-family: 'BodyFont', sans-serif;
+}
+
+.collapsible-content ul li {
+    /*display: inline;*/
+    margin-right: 20px;
+}
+
+.collapsible-content a {
+    text-decoration: none;
+    color: white;
+    background-color: #6B8E23;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    animation: blink 1.6s infinite;
+}
+
+@keyframes blink {
+    0% {
+        background-color: #6B8E23;
+    }
+    50% {
+        background-color: #8FBC8F;
+    }
+    100% {
+        background-color: #6B8E23;
+    }
+}
+
+.collapsible-content a:hover {
+    color: #9ACD32
+}
+
+.h1-collapsible-content {
+    text-align: center;
+    color: #6B8E23;
+    font-size: 35px;
+    font-family: 'HeadingFont', sans-serif;
+    font-weight: bold;
+}
+
+.collapsible-content table {
+    margin: 0 auto;
+}
+
+.collapsible-content table tr td {
+    text-align: center;
+    border: none;
+    /*margin-bottom: 20px;*/
+    padding: 5px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 3;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #6B8E23;
+    color: white;
+    border-radius: 5px;
+}
+
+.modal-header h2 {
+    text-align: center;
+    color: white;
+    font-family: 'BodyFont', sans-serif;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-body h3 {
+    text-align: center;
+    color: black;
+    font-family: 'BodyFont', sans-serif;
+}
+
+/* Price Table */
+.columns {
+    display: inline-block;
+    width: 25%;
+    padding: 10px;
+    margin: 0 75px;
+}
+
+.price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+    background-color: #FAF0E6;
+    color: #6B8E23;
+    font-size: 25px;
+    font-family: 'HeadingFont', sans-serif;
+}
+
+.price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+    font-family: 'BodyFont', sans-serif;
+}
+
+.price .ivory {
+    background-color: #FFFFF0;
+    font-size: 20px;
+}
+
+.button {
+    background-color: #6B8E23;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Chips */
+.chip-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* добавляем небольшое расстояние между чипсами */
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #FAF0E6;
+    color: white;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.chip a {
+    color: #6B8E23;
+    text-decoration: none;
+    font-family: 'BodyFont', sans-serif;
+}
+
+.chip a:hover {
+    color: green;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    /* Parallax */
+    .parallax {
+        background-attachment: scroll;
+    }
+
+    .parallax-1 {
+        min-height: 767px;
+    }
+
+    .parallax .avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    .parallax h1 {
+        font-size: 22px;
+    }
+
+    .parallax p {
+        font-size: 12px;
+        width: 75%;
+    }
+
+    /* Price Table */
+    .columns {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        margin: 0;
+    }
+
+    .price {
+        margin: 0 0 20px 0;
+    }
+
+    .price .header h1 {
+        font-size: 22px;
+    }
+
+    .price li {
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .price .ivory {
+        font-size: 16px;
+    }
+
+    .button {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+
+    /* Collapsible */
+    .h1-collapsible-content {
+        font-size: 22px;
+    }
+
+    .collapsible-content p {
+        font-size: 12px;
+    }
+
+    .collapsible-button {
+        font-size: 10px;
+    }
+
+    .collapsible-content table tr td {
+        padding: 1px;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .modal-header {
+        padding: 10px 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 18px;
+    }
+
+    .modal-body {
+        padding: 10px 16px;
+    }
+
+    .modal-body h3 {
+        font-size: 16px;
+    }
+
+    .modal {
+        padding-top: 50px;
+    }
+
+    /* Navbar */
+    .toggle-nav {
+        display: block;
+    }
+
+    .toggle-nav.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .toggle-nav.active .bar:nth-child(1) {
+        -webkit-transform: translateY(8px) rotate(45deg);
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .toggle-nav.active .bar:nth-child(3) {
+        -webkit-transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #777;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 16px 0;
+    }
+
+    /* Chips */
+    .chip {
+	    height: 25px;
+	    line-height: 25px;
+	}
+
+	.chip img {
+	    height: 25px;
+        width: 25px;
+	}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+    /* Parallax */
+    .parallax {
+        background-attachment: scroll;
+    }
+
+    .parallax-1 {
+        min-height: 768px;
+    }
+
+    .parallax .avatar {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+    }
+
+    .parallax h1 {
+        font-size: 25px;
+    }
+
+    .parallax p {
+        font-size: 15px;
+        width: 75%;
+    }
+
+    /* Price Table */
+    .columns {
+        width: 33%;
+        margin: 0;
+    }
+
+    .price .header {
+        font-size: 20px;
+    }
+
+    .price li {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .price .ivory {
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+}
